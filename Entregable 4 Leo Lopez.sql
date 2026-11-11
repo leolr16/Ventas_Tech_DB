@@ -118,7 +118,7 @@ SELECT
     COUNT(*) AS cantidad_pedidos,
     AVG(cantidad * precio_unitario) AS ticket_promedio
 FROM ventas
-GROUP BY MONTH(fecha_venta);
+GROUP BY MONTH(mes);
 GO
 
 -- CONSULTA 2: RANKING DE PRODUCTOS (TOP 5)
@@ -164,23 +164,3 @@ FROM TotalesPorProducto
 ORDER BY total_producto DESC;
 GO
 
--- ----------------------------------------------------------------------------
--- BLOQUE DE CIERRE: 3 HALLAZGOS ESTRATÉGICOS DE NEGOCIO
--- ----------------------------------------------------------------------------
-/*
-HALLAZGO 1 - Alta concentración de facturación en el Producto 1:
-El id_producto 1 (Laptop Pro 15) es el líder absoluto de ingresos con $3,600.00
-facturados (3 unidades vendidas a $1,200.00 cada una), representando el 63.8%
-del total comercializado por la tienda en marzo ($5,640.00).
-
-HALLAZGO 2 - Fidelidad y recurrencia de la base de clientes:
-El 80% de los clientes analizados (4 de 5: IDs 1, 2, 3 y 4) son recurrentes
-con exactamente 2 pedidos cada uno en el mes, concentrando el 83.2% del total
-facturado ($4,690.00). El cliente 1 lidera el gasto con $2,640.00.
-
-HALLAZGO 3 - Asimetría en el rendimiento del catálogo comercial:
-El promedio de facturación por producto fue de $940.00. Solo 2 productos
-(id_producto 1 con $3,600.00 e id_producto 3 con $1,350.00) se ubicaron 'Por encima'
-del promedio, mientras que los 4 productos restantes quedaron 'Por debajo',
-evidenciando una alta dependencia de las ventas de computadoras y monitores [cite: 7].
-*/
